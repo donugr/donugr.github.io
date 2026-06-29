@@ -1,27 +1,67 @@
 <!doctype html>
-<html lang="en" class="h-full">
+<html lang="id">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>DONUGR TECH App Showcase</title>
+    <meta name="description" content="Bisa anda dapatkan di Google Play Store" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body class="relative min-h-full overflow-x-hidden bg-slate-950 text-slate-100 antialiased">
-    <div
-      class="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_top_left,rgba(20,184,166,0.20),transparent_26%),radial-gradient(circle_at_80%_18%,rgba(45,212,191,0.12),transparent_22%),radial-gradient(circle_at_bottom_right,rgba(8,145,178,0.10),transparent_24%),linear-gradient(135deg,rgba(2,6,23,0.98)_0%,rgba(3,16,30,0.92)_45%,rgba(2,6,23,0.80)_100%)]"></div>
-    <div class="pointer-events-none absolute -left-24 top-8 -z-10 h-72 w-72 rounded-full bg-teal-500/10 blur-3xl"></div>
-    <div
-      class="pointer-events-none absolute right-[-5rem] top-24 -z-10 h-80 w-80 rounded-full bg-cyan-400/10 blur-3xl"></div>
-    <header class="sticky top-0 z-20 border-b border-slate-700/30 bg-slate-950/85 backdrop-blur-xl">
-      <div class="flex w-full items-center justify-between gap-4 px-4 py-4 md:px-6 lg:px-8">
-        <a class="min-w-0 truncate font-bold tracking-[0.04em] text-white transition hover:text-sky-300" href="#home">
-          DONUGR TECH
-        </a>
-        <nav class="flex flex-wrap justify-end gap-x-4 gap-y-2 text-sm text-slate-300">
-          <a class="transition hover:text-sky-300" href="#home">Home</a>
-        </nav>
-      </div>
-    </header>
-    <main class="w-full bg-transparent px-4 pb-4 pt-0 md:px-6 md:pb-6 md:pt-0 lg:px-8 lg:pb-8 lg:pt-0"></main>
+  <body class="showcase-index">
+    <main class="app-shell">
+      <section class="section-heading">
+        <h1 class="section-title">Daftar Aplikasi DONUGR TECH</h1>
+        <p class="section-subtitle">Bisa anda dapatkan di Google Play Store</p>
+      </section>
+
+      <section>
+        <div id="appsGrid" class="apps-grid"></div>
+      </section>
+    </main>
+
+    <script>
+      const apps = [{"APP_NAME":"Kas RT/RW","APP_ID":"donugr.kasrtrw.mmxxvi.id","APP_VERSION":"1.0.3","DEFAULT_LANGUAGE":"id","TAGLINE":"Ringkas, cepat, dan siap dipakai untuk operasional kas lingkungan.","SHORT_DESCRIPTION":"Kas RT/RW adalah aplikasi pencatatan kas lingkungan untuk membantu pengelolaan warga, iuran, pemasukan, pengeluaran, inventaris, laporan, backup, dan cetak nota dalam satu aplikasi yang praktis digunakan.","APP_IMAGE":"./donugr.kasrtrw.mmxxvi.id/favicon.png","COVER_IMAGE":"./donugr.kasrtrw.mmxxvi.id/showcase.png"},{"APP_NAME":"LaundryKu","APP_ID":"donugr.laundryku.mmxxvi.id","APP_VERSION":"1.0.0","DEFAULT_LANGUAGE":"id","TAGLINE":"Kelola usaha laundry lebih mudah, cepat, dan profesional.","SHORT_DESCRIPTION":"LaundryKu adalah aplikasi manajemen usaha laundry yang membantu mencatat transaksi, mengelola pelanggan, memantau proses cucian, mengatur pembayaran, serta menyajikan laporan usaha secara praktis dalam satu aplikasi.","APP_IMAGE":"./donugr.laundryku.mmxxvi.id/favicon.png","COVER_IMAGE":"./donugr.laundryku.mmxxvi.id/showcase.png"},{"APP_NAME":"Stok Dapur","APP_ID":"donugr.stokdapur.mmxxvi.id","APP_VERSION":"1.0.0","DEFAULT_LANGUAGE":"id","TAGLINE":"Catat stok bahan dapur lebih cepat, rapi, dan mudah dipantau.","SHORT_DESCRIPTION":"Stok Dapur adalah aplikasi pencatatan stok bahan dapur untuk membantu operasional harian, pencarian bahan, kontrol stok masuk dan stok keluar, serta dokumentasi bahan dalam satu aplikasi yang mudah digunakan.","APP_IMAGE":"./donugr.stokdapur.mmxxvi.id/favicon.png","COVER_IMAGE":"./donugr.stokdapur.mmxxvi.id/showcase.png"},{"APP_NAME":"TokoPakan","APP_ID":"donugr.tokopakan.mmxxvi.id","APP_VERSION":"1.0.0","DEFAULT_LANGUAGE":"id","TAGLINE":"Kelola Toko Pakan Lebih Cepat, Rapi, dan Menguntungkan","SHORT_DESCRIPTION":"Aplikasi kasir dan manajemen toko pakan untuk mencatat penjualan, pembelian, stok, pelanggan, supplier, serta laporan usaha dalam satu aplikasi yang mudah digunakan.","APP_IMAGE":"./donugr.tokopakan.mmxxvi.id/favicon.png","COVER_IMAGE":"./donugr.tokopakan.mmxxvi.id/showcase.png"}];
+
+      function shuffle(items) {
+        const result = [...items];
+        for (let index = result.length - 1; index > 0; index -= 1) {
+          const nextIndex = Math.floor(Math.random() * (index + 1));
+          [result[index], result[nextIndex]] = [result[nextIndex], result[index]];
+        }
+        return result;
+      }
+
+      function renderAppCard(app) {
+        return `
+          <a class="app-card" href="./${app.APP_ID}/index.html">
+            <div class="app-cover">
+              <img src="${app.COVER_IMAGE}" alt="${app.APP_NAME} cover" loading="lazy" />
+            </div>
+            <div class="app-body">
+              <img class="app-icon" src="${app.APP_IMAGE}" alt="${app.APP_NAME} icon" loading="lazy" />
+              <div>
+                <h2 class="app-name">${app.APP_NAME}</h2>
+                <p class="app-tagline">${app.TAGLINE || app.SHORT_DESCRIPTION || ""}</p>
+                <div class="app-meta">${[app.DEFAULT_LANGUAGE, app.APP_VERSION].filter(Boolean).join(" · ")}</div>
+              </div>
+            </div>
+          </a>
+        `;
+      }
+
+      function renderApps() {
+        const grid = document.getElementById("appsGrid");
+        const items = shuffle(Array.isArray(apps) ? apps : []);
+
+        if (!items.length) {
+          grid.innerHTML = '<div class="empty-state">Belum ada app showcase yang tersedia.</div>';
+          return;
+        }
+
+        grid.innerHTML = items.map(renderAppCard).join("");
+      }
+
+      renderApps();
+    </script>
   </body>
 </html>
