@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Kas RT/RW | DONUGR TECH App Showcase</title>
     <meta
       name="description"
@@ -85,7 +88,7 @@
           <article
             class="rounded-[1.75rem] border border-slate-700/30 bg-gradient-to-br from-slate-900/65 to-slate-950/50 p-5 shadow-glow backdrop-blur-sm">
             <p class="text-xs uppercase tracking-[0.2em] text-teal-300">Versi saat ini</p>
-            <div class="mt-3 text-2xl font-semibold text-white">1.0.3</div>
+            <div class="mt-3 text-2xl font-semibold text-white">1.0.4</div>
           </article>
         </div>
       </section>
@@ -235,7 +238,7 @@
                   </div>
                   <div class="grid grid-cols-[0.9fr_1.1fr] gap-3 px-4 py-4">
                     <div class="text-slate-400">Versi saat ini</div>
-                    <div class="font-medium text-white">1.0.3</div>
+                    <div class="font-medium text-white">1.0.4</div>
                   </div>
                   <div class="grid grid-cols-[0.9fr_1.1fr] gap-3 px-4 py-4">
                     <div class="text-slate-400">Kategori</div>
@@ -268,7 +271,7 @@
               <article class="rounded-[1.5rem] border border-slate-700/30 bg-slate-950/55 p-5">
                 <h3 class="text-lg font-semibold text-white">Data yang diproses</h3>
                   <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-300">
-                      <li>Data pelanggan, transaksi, pembayaran, dan riwayat cucian</li>
+                      <li>Data perangkat atau identifier seperti Advertising ID, Firebase Installation ID, token notifikasi, informasi aplikasi, informasi performa, dan diagnostik teknis yang dapat diproses oleh SDK pihak ketiga.</li>
                       <li>Preferensi aplikasi seperti tema, bahasa, dan pengaturan printer</li>
                       <li>Data notifikasi dan metadata teknis terbatas bila fitur notifikasi dipakai</li>
                   </ul>
@@ -280,6 +283,7 @@
                       <li>Push notification</li>
                       <li>Bluetooth untuk printer thermal</li>
                       <li>File dan penyimpanan untuk backup, restore, export, dan share</li>
+                      <li>Koneksi internet untuk iklan, notifikasi, analitik, pelaporan performa, dan fitur pihak ketiga yang diperlukan.</li>
                   </ul>
               </article>
               <article class="rounded-[1.5rem] border border-slate-700/30 bg-slate-950/55 p-5">
@@ -287,8 +291,31 @@
                   <p class="mt-3 text-sm leading-6 text-slate-300">Sebagian besar data disimpan lokal di perangkat dan tetap berada di perangkat sampai dihapus, dipulihkan dari backup, atau aplikasi dihapus.</p>
               </article>
               <article class="rounded-[1.5rem] border border-slate-700/30 bg-slate-950/55 p-5">
+                <h3 class="text-lg font-semibold text-white">Iklan dan mediasi iklan</h3>
+                  <p class="mt-3 text-sm leading-6 text-slate-300">Aplikasi ini menggunakan layanan iklan pihak ketiga untuk menampilkan iklan dan mendukung pengembangan aplikasi. Layanan yang dapat digunakan meliputi Google AdMob, InMobi, dan AppLovin, dan provider sejenis yang lainnya. Google menyediakan panduan Data safety untuk Google Mobile Ads SDK/AdMob, dan developer wajib mendeklarasikan data yang dikumpulkan atau dibagikan oleh aplikasi maupun SDK pihak ketiga. InMobi dan AppLovin, maupun provider sejenis yang lainnya juga memiliki kebijakan privasi sendiri terkait pemrosesan data iklan dan identifier perangkat.</p>
+              </article>
+              <article class="rounded-[1.5rem] border border-slate-700/30 bg-slate-950/55 p-5">
+                <h3 class="text-lg font-semibold text-white">Firebase Cloud Messaging (FCM)</h3>
+                  <p class="mt-3 text-sm leading-6 text-slate-300">Aplikasi ini dapat menggunakan Firebase Cloud Messaging (FCM) untuk mengirim push notification. Untuk menjalankan fitur ini, Firebase dapat memproses identifier instalasi Firebase, token notifikasi, informasi perangkat, dan metadata teknis yang diperlukan agar pesan dapat dikirim ke perangkat yang sesuai.  Firebase menjelaskan bahwa Firebase Cloud Messaging menggunakan Firebase installation IDs untuk menentukan perangkat tujuan pengiriman pesan.</p>
+              </article>
+              <article class="rounded-[1.5rem] border border-slate-700/30 bg-slate-950/55 p-5">
                 <h3 class="text-lg font-semibold text-white">Pembagian data</h3>
-                  <p class="mt-3 text-sm leading-6 text-slate-300">Data operasional utama tidak dibagikan untuk iklan atau pemasaran. Data hanya diteruskan untuk notifikasi, share/export, atau jika diwajibkan hukum.</p>
+                  <p class="mt-3 text-sm leading-6 text-slate-300">Data operasional utama yang disimpan lokal tidak dibagikan atau tidak dijual oleh pengelola aplikasi. Namun, data teknis tertentu dapat diproses atau dibagikan kepada penyedia layanan pihak ketiga seperti Google AdMob, InMobi, AppLovin, Firebase, dan layanan terkait untuk iklan, notifikasi,analitik, diagnostik, keamanan, anti-fraud, dan kepatuhan hukum</p>
+              </article>
+              <article class="rounded-[1.5rem] border border-slate-700/30 bg-slate-950/55 p-5">
+                <h3 class="text-lg font-semibold text-white">Pilihan Pengguna</h3>
+                  <p class="mt-3 text-sm leading-6 text-slate-300">Pengguna dapat mengelola atau membatasi personalisasi iklan melalui pengaturan perangkat Android, pengaturan privasi Google, atau mekanisme persetujuan yang tersedia di aplikasi bila diwajibkan oleh wilayah hukum tertentu. Pengguna juga dapat menonaktifkan notifikasi melalui pengaturan sistem Android.</p>
+              </article>
+              <article class="rounded-[1.5rem] border border-slate-700/30 bg-slate-950/55 p-5">
+                <h3 class="text-lg font-semibold text-white">Referensi kebijakan pihak ketiga</h3>
+                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-300">
+                      <li><a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google Ads Privacy & Terms</a></li>
+                      <li><a href="https://developers.google.com/admob/android/privacy/play-data-disclosure" target="_blank" rel="noopener">Google AdMob - Google Play Data Disclosure</a></li>
+                      <li><a href="https://firebase.google.com/docs/android/play-data-disclosure" target="_blank" rel="noopener">Firebase - Google Play Data Disclosure</a></li>
+                      <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy and Security</a></li>
+                      <li><a href="https://advertising.inmobi.com/privacy-policy" target="_blank" rel="noopener">InMobi Privacy Policy</a></li>
+                      <li><a href="https://legal.applovin.com/privacy/" target="_blank" rel="noopener">AppLovin Privacy Policy</a></li>
+                  </ul>
               </article>
           </div>
 
@@ -311,7 +338,7 @@
             <section id="id" class="bg-slate-900/50 backdrop-blur-sm rounded-2xl shadow-xl border border-slate-800 p-6 md:p-10 mb-12 scroll-mt-6">
             <div class="border-b border-slate-800 pb-6 mb-6">
                 <h1 class="text-2xl md:text-3xl font-bold text-slate-100 mb-2">CMP (Consent Management Platform) atau GDPR Consent</h1>
-                <p class="text-sm text-slate-500">Terakhir diperbarui: 30 Juni 2026</p>
+                <p class="text-sm text-slate-500">Terakhir diperbarui: 10 Juli 2026</p>
             </div>
 
             <!-- Bagian 2 -->
@@ -345,7 +372,10 @@
                 </h2>
                 <div class="pl-11 text-slate-400 leading-relaxed text-justify">
                     <p>
-                        Kami sangat menghargai kepercayaan Anda dalam memberikan Informasi Pribadi Anda kepada kami, oleh karena itu kami berupaya keras untuk menggunakan cara-cara yang dapat diterima secara komersial untuk melindunginya. Namun, perlu diingat bahwa tidak ada metode transmisi melalui internet, atau metode penyimpanan elektronik yang 100% aman dan andal. Kami tidak dapat menjamin keamanan mutlak atas data tersebut.
+                      Kami berupaya menggunakan cara yang wajar secara komersial untuk melindungi
+                      data pengguna. Namun, tidak ada metode transmisi melalui internet atau metode
+                      penyimpanan elektronik yang sepenuhnya aman. Karena itu, kami tidak dapat
+                      menjamin keamanan data secara mutlak.
                     </p>
                 </div>
             </div>
@@ -360,7 +390,7 @@
           class="bg-slate-900/50 backdrop-blur-sm rounded-2xl shadow-xl border border-slate-800 p-6 md:p-10 scroll-mt-6">
             <div class="border-b border-slate-800 pb-6 mb-6">
                 <h1 class="text-2xl md:text-3xl font-bold text-slate-100 mb-2">CMP (Consent Management Platform) or GDPR Consent</h1>
-                <p class="text-sm text-slate-500">Last updated: June 30, 2026</p>
+                <p class="text-sm text-slate-500">Last updated: July 10, 2026</p>
             </div>
 
             <!-- Section 2 -->
@@ -394,8 +424,11 @@
                 </h2>
                 <div class="pl-11 text-slate-400 leading-relaxed text-justify">
                     <p>
-                        We value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security.
-                    </p>
+  We strive to use commercially acceptable means to protect user data. 
+  However, no method of transmission over the internet or method of 
+  electronic storage is completely secure. Therefore, we cannot 
+  guarantee its absolute security.
+</p>
                 </div>
             </div>
         </section>
